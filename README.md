@@ -1,3 +1,26 @@
+This is a customized java buildpack for cloud foundry, added maven build support to the original [java-buildpack](https://github.com/cloudfoundry/java-buildpack).
+
+It detects `pom.xml` and run `maven` to build `war` file, then use the `war` file to stage app. If no `pox.xml` is found, it does nothing. 
+
+For more detail, see: https://github.com/heroku/heroku-buildpack-java
+
+# How to use?
+
+Your maven app structure may like this:
+
+```
+	- pom.xml
+	- src
+```
+
+In the app dir, run the follow command:
+
+```
+cf push --buildpack https://github.com/tsl0922/java-buildpack.git
+```
+
+------------------------------------
+
 # Cloud Foundry Java Buildpack
 [![Build Status](https://travis-ci.org/cloudfoundry/java-buildpack.png?branch=master)](https://travis-ci.org/cloudfoundry/java-buildpack)
 [![Dependency Status](https://gemnasium.com/cloudfoundry/java-buildpack.png)](http://gemnasium.com/cloudfoundry/java-buildpack)
